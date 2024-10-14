@@ -42,6 +42,9 @@ def extract_texts(binary_file, csv_file):
                 text += byte.decode("latin-1")
                 byte = bin_file.read(1)
 
+            # latin-1 -> utf-8
+            text = text.encode('latin-1').decode('utf-8')
+            
             # Записываем информацию в CSV-файл
             writer.writerow([text_id, text])
 
